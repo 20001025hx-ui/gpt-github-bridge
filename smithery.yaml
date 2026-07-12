@@ -1,0 +1,17 @@
+name: gpt-github-bridge
+description: MCP server bridging ChatGPT to GitHub with write access — publish_skill, upsert_file, create_branch, create_pr
+version: 1.0.0
+transport: streamable-http
+port: 3000
+healthCheck:
+  path: /health
+env:
+  - key: GITHUB_TOKEN
+    required: true
+    description: GitHub fine-grained PAT with Contents R/W and Pull Requests R/W
+  - key: ALLOWED_REPOSITORIES
+    required: false
+    default: 20001025hx-ui/teacher-skill
+  - key: ALLOW_DIRECT_MAIN_PUSH
+    required: false
+    default: "false"
