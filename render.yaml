@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: gpt-github-bridge
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/index.js
+    envVars:
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: ALLOWED_REPOSITORIES
+        value: 20001025hx-ui/teacher-skill
+      - key: ALLOW_DIRECT_MAIN_PUSH
+        value: "false"
